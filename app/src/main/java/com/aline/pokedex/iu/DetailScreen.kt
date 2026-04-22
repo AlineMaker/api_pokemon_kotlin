@@ -8,13 +8,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.aline.pokedex.viewmodel.DetailViewModel
 import com.aline.pokedex.viewmodel.PokemonViewModel
 
 @Composable
 fun DetailScreen(nome: String) {
 
-    val viewModel: PokemonViewModel = viewModel()
+
+    val viewModel: DetailViewModel = viewModel()
     val pokemon by viewModel.pokemon.observeAsState()
+   // val viewModel: PokemonViewModel = viewModel()
+    //val pokemon by viewModel.pokemon.observeAsState()
+    //--val pokemon by viewModel.pokemons.observeAsState()
 
     LaunchedEffect(nome) {
         viewModel.buscarPokemon(nome)
